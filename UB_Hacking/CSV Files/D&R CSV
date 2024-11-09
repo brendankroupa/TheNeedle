@@ -1,0 +1,105 @@
+# The following keywords are assigned values ranging from -10 to 10.
+# These values indicate positions on the political spectrum:
+# -10 = Far Left, 0 = Moderate, 10 = Far Right
+
+#Democrat
+"Progressive",-10
+"Inclusivity",-9
+"Equality",-9
+"Diversity",-8
+"Empathy",-7
+"Justice",-8
+"Reform",-6
+"Climate",-9
+"Multicultural",-8
+"Community",-5
+"Universal",-9
+"Rights",-7
+"Welfare",-8
+"Equity",-8
+"Transparency",-6
+"Public",-5
+"Compassion",-6
+"Healthcare",-9
+"Social",-7
+"Environmental",-9
+"Tolerance",-7
+"Sustainability",-9
+"Peace",-5
+"Empowerment",-8
+"Innovation",-4
+"Green",-9
+"Freedom",-6
+"Renewable",-9
+"Medicare",-8
+"Unity",-6
+"Affordable",-7
+"Opportunity",-6
+"Cooperation",-5
+"Gender",-8
+"Labor",-7
+"Support",-5
+"Clean",-9
+"Humanitarian",-7
+"Education",-5
+"Reproductive",-8
+"Compromise",-4
+"Diplomacy",-5
+"Multiculturalism",-8
+"Liberties",-6
+"Equality",-9
+"Sanctuary",-9
+"Ethics",-6
+"Union",-7
+"Inclusion",-8
+"Justice",-8
+"Workers",-6
+"Protection",-7
+"Assistance",-7
+"Renewables",-9
+"Fairness",-8
+"Safety",-7
+"Values",-6
+"Advocacy",-7
+"Humanity",-8
+"Empower",-7
+"Volunteer",-5
+"Civic",-5
+"Charity",-5
+"Transparency",-6
+"Wellbeing",-7
+"Environmentalism",-9
+"Coexistence",-7
+"Democracy",-6
+"Civility",-5
+"Accountability",-5
+"Global",-7
+"Restorative",-8
+"Collectivism",-9
+"Empowerment",-8
+"Human Rights",-8
+"Liberty",-5
+"Dignity",-6
+"Responsibility",-6
+"Worker",-6
+"Ethical",-5
+"Social Justice",-9
+"Inclusion",-8
+"Compassionate",-6
+"Progress",-7
+"Advancement",-6
+"Nonviolence",-8
+"Cultural",-5
+"Outreach",-5
+"Participation",-4
+"Public Service",-6
+"Social Good",-7
+"Fair Wage",-7
+"Affordable Care",-8
+"Education Reform",-7
+"Labor Rights",-7
+"Energy",-6
+"Partnership",-5
+"Renewal",-7
+"Unity",-6
+"Rehabilitation",-7
