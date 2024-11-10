@@ -36,4 +36,5 @@ if values:
     print(f"{percentage:.1f}% {leaning} leaning")
     
 else:
-    print("No matching words found in the dictionary.")
+    #Nothing matches the CSV
+    print("No clear partisan lean")
