@@ -12,7 +12,7 @@ with open(file, 'r', encoding='utf-8') as csvfile:
             value = int(row[1])
             aDict[key] = value
 
-# Prompt the user for input and convert each word to lowercase
+#SWAP THIS OUT FOR CSV FILE IN FINAL!!!
 user_input = input("Enter words separated by commas: ")
 words = [word.strip().lower() for word in user_input.split(',')]
 
