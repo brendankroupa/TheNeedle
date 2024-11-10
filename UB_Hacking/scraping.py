@@ -1,54 +1,46 @@
+from bs4 import BeautifulSoup
+import string
+import requests
+import os
+import sys
+import time
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
-# Function to extract main article text from a given URL
-def extract_article_text(url):
-    # Set up the Chrome driver
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    article_text = []
-
+def scraper(url):
     try:
-        # Open the article page
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         driver.get(url)
-        
-        # Wait until the main content is present - targetting common article tags
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.TAG_NAME, "article"))
-        )
 
-        # Try various common tags or classes to extract the article content
-        # First, try the <article> tag if it's available
-        try:
-            content = driver.find_element(By.TAG_NAME, "article")
-        except:
-            # Fallback to a common class used for article content in <div>
-            content = driver.find_element(By.CLASS_NAME, "main-content")
+        username = driver.find_element(By.NAME, "user")
+        password = driver.find_element(By.NAME, "pass")
 
-        # Extract text from all <p> tags within the selected content
-        paragraphs = content.find_elements(By.TAG_NAME, "p")
-        for paragraph in paragraphs:
-            text = paragraph.text.strip()
-            if text:
-                article_text.append(text)
+        # nu login bypass
+        username.send_keys('s0964265')
+        password.send_keys('eHsdfvknbiovq7')
 
-        # Print the extracted text
-        print("Extracted Article Content:")
-        for line in article_text:
-            print(line)
+        # Submit the login form
+        driver.find_element(By.XPATH, "//input[@type='submit']").click()            
+        all_text = driver.page_source
+        soup = BeautifulSoup(all_text, 'html.parser')
 
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        for script in soup(['script', 'style']):
+            script.decompose()
 
-    finally:
+        text = soup.get_text()
+        text = text.lower()
+        text = text.translate(str.maketrans('', '', string.punctuation))
+        lines = (line.strip() for line in text.splitlines())
+        chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+        text = '\n'.join(chunk for chunk in chunks if chunk) 
         driver.quit()
-
-    return article_text
-
-# Test the function with an example URL
-url = 'https://www.reuters.com/world/us/republicans-brink-clinching-us-house-control-2024-11-09/'
-article_content = extract_article_text(url)
+        return text
+            
+    except requests.RequestException as e:
+        print(f"An error occurred while fetching the article: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
