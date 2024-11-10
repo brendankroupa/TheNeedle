@@ -1,9 +1,3 @@
-#D&R = Democrat and Republican
-# The following keywords are assigned values ranging from -10 to 10.
-# These values indicate positions on the political spectrum:
-# -10 = Far Left, 0 = Moderate, 10 = Far Right
-
-# Democrat
 "Progressive",-10
 "Inclusivity",-9
 "Equality",-9
@@ -77,8 +71,6 @@
 "Affordable",-8
 "Education Reform",-7
 "Rehabilitation",-7
-
-# Republican
 "Conservative",10
 "Liberty",8
 "Patriotism",7
