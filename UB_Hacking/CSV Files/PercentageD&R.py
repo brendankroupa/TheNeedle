@@ -2,7 +2,7 @@ import csv
 import re
 
 # Load the CSV data into a dictionary with lowercase keys
-file = "D&RTest5.csv"
+file = "D&Rtestingcase.csv"
 aDict = {}
 
 with open(file, 'r', encoding='utf-8') as csvfile:
@@ -30,21 +30,27 @@ for phrase, score in aDict.items():
     # Append the score to values list for each occurrence
     values.extend([score] * count)
 
-# Calculate the average based on the values in the list
-if values:
+# Check if there are at least 3 matching phrases
+if len(values) < 3: # Less than 3 'Catches' of political phrasing
+    print("Not enough data to determine political leaning.")
+else:
+    # Calculate the average based on the values in the list
     average = sum(values) / len(values)
     
     if average < 0:
         leaning = "Democratic"
-        percentage = abs(average) * 10  # Convert to percentage
+        percentage = abs(average) * 5  # Convert to percentage
     elif average > 0:
         leaning = "Republican"
-        percentage = average * 10  # Convert to percentage
+        percentage = average * 5  # Convert to percentage
     else:
         leaning = "Neutral / Centrist"
         percentage = 0
     
     print(f"{percentage:.1f}% {leaning} leaning based on {len(values)} matching phrases")
+
+print(values)
+
+    print(f"{percentage:.1f}% {leaning} leaning based on {len(values)} matching phrases")
 else:
     print("No partisan lean.")
-print(values)
