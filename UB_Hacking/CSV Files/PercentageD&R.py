@@ -16,6 +16,8 @@ with open(file, 'r', encoding='utf-8') as csvfile:
             except ValueError:
                 print(f"Warning: Skipping non-integer value in row: {row}")
 
+
+#WHEN COMPILING CHANGE THE INPUT TO GUI
 # Input: block of text
 user_input = input("Enter a block of text: ").lower()
 
