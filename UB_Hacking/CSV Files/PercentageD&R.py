@@ -1,34 +1,43 @@
 import csv
+import re
 
 # Load the CSV data into a dictionary with lowercase keys
-file = "D&RTest1.csv"
+file = "D&RTest3.csv"
 aDict = {}
 
 with open(file, 'r', encoding='utf-8') as csvfile:
     csvreader = csv.reader(csvfile)
     for row in csvreader:
-
         if len(row) == 2:
-            key = row[0].strip().lower() 
+            key = row[0].strip().lower()
             try:
                 value = int(row[1])
                 aDict[key] = value
             except ValueError:
                 print(f"Warning: Skipping non-integer value in row: {row}")
 
-user_input = input("Enter words separated by commas: ")
+# Input: block of text
+user_input = input("Enter a block of text: ").lower()
 
-words = [word.strip().lower() for word in user_input.split(',')]
+# Initialize total score and count for occurrences
+total_score = 0
+total_count = 0
 
-# Calculate the sum and average of matching words
-values = [aDict[word] for word in words if word in aDict]
+# Find all phrases in the dictionary that appear in the text and count occurrences
+for phrase, score in aDict.items():
+    matches = re.findall(rf'\b{re.escape(phrase)}\b', user_input)
+    count = len(matches)  # Count the occurrences of the phrase
 
-if values:
-    total = sum(values)
-    average = total / len(values)
+    if count > 0:
+        total_score += score * count  # Add the score multiplied by occurrences
+        total_count += count  # Add the count to the total
+
+# Calculate the average based on detected phrases
+if total_count > 0:
+    average = total_score / total_count
     
     if average < 0:
-        leaning = "Democrat"
+        leaning = "Democratic"
         percentage = abs(average) * 10  # Convert to percentage
     elif average > 0:
         leaning = "Republican"
@@ -37,7 +46,7 @@ if values:
         leaning = "Neutral / Centrist"
         percentage = 0
     
-    print(f"{percentage:.1f}% {leaning} leaning")
+    print(f"{percentage:.1f}% {leaning} leaning based on {total_count} matching phrases")
 else:
     print("No partisan lean.")
 
