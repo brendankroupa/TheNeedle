@@ -1,9 +1,3 @@
-#L&C = Liberal and Conservative
-# The following keywords are assigned values ranging from -10 to 10.
-# These values indicate positions on the political spectrum:
-# -10 = Extreme Liberal, 0 = Moderate, 10 = Extreme Conservative
-
-# Liberal
 "Progressive",-10
 "Compassionate",-9
 "Inclusivity",-10
@@ -109,8 +103,6 @@
 "Liberties",-7
 "Shared",-7
 "Global",-8
-
-# Conservative
 "Conservative",10
 "Self-reliance",9
 "Patriotism",10
