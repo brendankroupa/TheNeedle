@@ -2,7 +2,7 @@ import csv
 import re
 
 # Load the CSV data into a dictionary with lowercase keys
-file = "D&RTest3.csv"
+file = "D&RTest5.csv"
 aDict = {}
 
 with open(file, 'r', encoding='utf-8') as csvfile:
@@ -19,22 +19,20 @@ with open(file, 'r', encoding='utf-8') as csvfile:
 # Input: block of text
 user_input = input("Enter a block of text: ").lower()
 
-# Initialize total score and count for occurrences
-total_score = 0
-total_count = 0
+# Initialize list to store scores of matching phrases
+values = []
 
 # Find all phrases in the dictionary that appear in the text and count occurrences
 for phrase, score in aDict.items():
     matches = re.findall(rf'\b{re.escape(phrase)}\b', user_input)
     count = len(matches)  # Count the occurrences of the phrase
 
-    if count > 0:
-        total_score += score * count  # Add the score multiplied by occurrences
-        total_count += count  # Add the count to the total
+    # Append the score to values list for each occurrence
+    values.extend([score] * count)
 
-# Calculate the average based on detected phrases
-if total_count > 0:
-    average = total_score / total_count
+# Calculate the average based on the values in the list
+if values:
+    average = sum(values) / len(values)
     
     if average < 0:
         leaning = "Democratic"
@@ -46,7 +44,7 @@ if total_count > 0:
         leaning = "Neutral / Centrist"
         percentage = 0
     
-    print(f"{percentage:.1f}% {leaning} leaning based on {total_count} matching phrases")
+    print(f"{percentage:.1f}% {leaning} leaning based on {len(values)} matching phrases")
 else:
     print("No partisan lean.")
-
+print(values)
