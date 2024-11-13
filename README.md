@@ -1,7 +1,7 @@
 TheNeedle - UB Hackathon Project 🧵
 Overview
 ---------
-TheNeedle is a project created during the University at Buffalo's hackathon as a team effort. This tool allows users to input an article link from their school’s database and receive a political lean analysis based on computational linguistics. By leveraging weighted phrasing from CSV files, ThNeedle determines a moderate political bias in the article content, helping users gain a nuanced perspective on potential biases in academic sources.
+TheNeedle is a project created during the University at Buffalo's hackathon as a team effort. This tool allows users to input an article link from their school’s database and receive a political lean analysis based on computational linguistics. By leveraging weighted phrasing from CSV files, TheNeedle determines a moderate political bias in the article content, helping users gain a nuanced perspective on potential biases in academic sources.
 
 Features
 ---------
