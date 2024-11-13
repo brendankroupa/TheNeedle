@@ -18,3 +18,4 @@ Simply input an article link from a school database into the ThNeedle UI, and th
 Acknowledgments
 ----------
 Big thanks to everyone who made this hackathon experience possible and to my teammates for their collaboration and hard work.
+![DC68B007-949D-43C4-A6CC-33206B918041_1_105_c](https://github.com/user-attachments/assets/7dc962ec-b79e-483d-b1eb-ac762c090022)
